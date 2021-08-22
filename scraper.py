@@ -20,13 +20,13 @@ with open(number_tracker, "r") as f:
 pbar = tqdm(total=length, unit='compound', smoothing=0.1)
 
 for spectrum_index, spectrum in reader:
+    pbar.update()
+    
     if spectrum_index <= curr_index:
         continue
 
     with open(number_tracker, 'w') as f:
         f.write(str(spectrum_index))
-
-    pbar.update()
 
     smiles = spectrum['params']['smiles']
     inchi = spectrum['params']['inchi']
