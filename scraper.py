@@ -76,6 +76,7 @@ for spectrum_index, spectrum in reader:
     assays = assays[assays['Bioactivity Outcome'] == 'Active']
     assays["Name"] = np.repeat(name, len(assays))
     assays["Spectrum ID"] = np.repeat(spectrum_id, len(assays))
+    assays["Spectrum Index"] = np.repeat(spectrum_index, len(assays))
     
     if len(assays) > 0:
         assays.to_csv(output_csv, mode='a', header=False)
